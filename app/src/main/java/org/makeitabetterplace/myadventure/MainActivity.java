@@ -14,17 +14,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = (Button) findViewById(R.id.btn_launchLocationActivity);
+        button = (Button) findViewById(R.id.btn_launchAddAFindActivity);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openLocationActivity();
+                openAddAFindActivity();
             }
         });
     }
 
-    public void openLocationActivity(){
-        Intent intent = new Intent(this, LocationTest.class);
+    public void openAddAFindActivity(){
+        Intent intent = new Intent(this, AddAFind.class);
         startActivity(intent);
     }
 }
