@@ -8,6 +8,7 @@
         android:orientation="vertical"
         android:gravity="center"
         tools:context=".MainActivity">
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,20 +20,37 @@
             android:textStyle="bold"
             android:layout_marginBottom="50dp"
     />
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20dp">
+        <Button
+                android:id="@+id/btn_launchAddAFindActivity"
+                android:text="Add A Find"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+        />
+        <Button
+                android:id="@+id/btn_launchShowFindsActivity"
+                android:text="Show Finds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+        />
+    </LinearLayout>
+
     <Button
-            android:text="Add A Find"
+            android:text="Offline Maps"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/btn_launchAddAFindActivity"
+            android:layout_height="wrap_content" android:id="@+id/btn_launchOfflineMapsActivity"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginBottom="20dp"
     />
+<!--     Create form to add PoI and Ghosttowns to sqlite-->
     <Button
-            android:text="Offline Maps"
+            android:text="Points Of Interest"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/btn_launchOfflineMapsActivity"
+            android:layout_height="wrap_content" android:id="@+id/btn_launchPointsOfInterestActivity"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

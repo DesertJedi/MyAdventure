@@ -8,23 +8,35 @@ import android.widget.Button;
 
 
 public class MainActivity extends AppCompatActivity {
-    Button button;
+    Button btnAddAFind;
+    Button btnShowFinds;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = (Button) findViewById(R.id.btn_launchAddAFindActivity);
-        button.setOnClickListener(new View.OnClickListener() {
+        btnAddAFind = (Button) findViewById(R.id.btn_launchAddAFindActivity);
+
+        btnAddAFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openAddAFindActivity();
             }
         });
+
+        btnShowFinds = (Button) findViewById(R.id.btn_launchShowFindsActivity);
+        btnShowFinds.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { openShowFindsActivity(); }
+        });
     }
 
     public void openAddAFindActivity(){
         Intent intent = new Intent(this, AddAFind.class);
+        startActivity(intent);
+    }
+    public void openShowFindsActivity(){
+        Intent intent = new Intent(this, ShowFinds.class);
         startActivity(intent);
     }
 }

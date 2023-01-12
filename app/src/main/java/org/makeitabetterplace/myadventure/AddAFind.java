@@ -9,6 +9,9 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Looper;
 import android.provider.Settings;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -22,24 +25,60 @@ import com.google.android.gms.tasks.Task;
 public class AddAFind extends AppCompatActivity {
 
     FusedLocationProviderClient mFusedLocationClient;
+    private EditText descriptionEditView, detailsEditView;
+    private TextView latitudeTextView, longitTextView, altitudeTextView;
+    private Button btnAddFind;
+    private DBHelper dbHandler;
 
-    TextView latitudeTextView, longitTextView, altitudeTextView;
+
     int PERMISSION_ID = 44;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_afind);
+        dbHandler = new DBHelper(this);
 
+        descriptionEditView = findViewById(R.id.description);
+        detailsEditView = findViewById(R.id.details);
         latitudeTextView = findViewById(R.id.latTextView);
         longitTextView = findViewById(R.id.lonTextView);
         altitudeTextView = findViewById(R.id.altitudeTextView);
+        btnAddFind = findViewById(R.id.btnAddFind);
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        // method to get the location
+        // method to get the location of find
         getLastLocation();
+
+        // add find data to db
+        btnAddFind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // gather data
+                String description = descriptionEditView.getText().toString();
+                String details = detailsEditView.getText().toString();
+                String longitude = longitTextView.getText().toString();
+                String latitude = latitudeTextView.getText().toString();
+                String altitude = altitudeTextView.getText().toString();
+
+                if (description.isEmpty() || details.isEmpty()) {
+                    Toast.makeText(AddAFind.this, "Please enter all info", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                dbHandler.addFind(description, details, longitude, latitude, altitude);
+
+                Toast.makeText(AddAFind.this, "Find has been added!", Toast.LENGTH_SHORT).show();
+                descriptionEditView.setText("");
+                detailsEditView.setText("");
+                longitTextView.setText("");
+                latitudeTextView.setText("");
+                altitudeTextView.setText("");
+            }
+        });
     }
 
+    // Functions for location of find
     @SuppressLint("MissingPermission")
     private void getLastLocation() {
         // check if permissions are given
@@ -132,4 +171,7 @@ public class AddAFind extends AppCompatActivity {
             getLastLocation();
         }
     }
+    // End of functions for location of find
+
+
 }
