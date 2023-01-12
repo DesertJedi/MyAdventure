@@ -31,7 +31,7 @@ public class FindRVAdapter extends RecyclerView.Adapter<FindRVAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int positition) {
-        FindModal modal = findsModalArrayList.get(positition);
+        FindsModal modal = findsModalArrayList.get(positition);
         holder.findDescription.setText(modal.getDescription());
         holder.findDetails.setText(modal.getDetails());
         holder.findLongitude.setText(modal.getLongitude());
@@ -52,7 +52,9 @@ public class FindRVAdapter extends RecyclerView.Adapter<FindRVAdapter.ViewHolder
             // initialize text views
             findDescription = itemView.findViewById(R.id.idFindDescription);
             findDetails = itemView.findViewById(R.id.idFindDetails);
-            findLongitude = itemView.findViewById(R.id.id)
+            findLongitude = itemView.findViewById(R.id.idFindLongitude);
+            findLatitude = itemView.findViewById(R.id.idFindLatitude);
+            findAltitude = itemView.findViewById(R.id.idFindAltitude);
         }
     }
 }

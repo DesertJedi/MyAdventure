@@ -44,15 +44,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:weightSum="2">
+                        android:weightSum="3">
                     <TextView
-                        android:id="@+id/idFindLongLat"
+                        android:id="@+id/idFindLongitude"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="3dp"
-                        android:text="Find LatLong"
+                        android:text="Find Longitude"
                         android:textColor="@color/black" />
+                    <TextView
+                            android:id="@+id/idFindLatitude"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="3dp"
+                            android:text="Find Latitude"
+                            android:textColor="@color/black" />
                     <TextView
                         android:id="@+id/idFindAltitude"
                         android:layout_width="0dp"
