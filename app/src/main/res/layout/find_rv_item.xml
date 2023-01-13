@@ -45,6 +45,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:weightSum="3">
+<!--                    TODO: Combine lat & long fields-->
                     <TextView
                         android:id="@+id/idFindLongitude"
                         android:layout_width="0dp"
@@ -69,6 +70,9 @@
                         android:padding="3dp"
                         android:text="Find Altitude"
                         android:textColor="@color/black" />
+
+<!--                    TODO: Add button to delete entry-->
+<!--                    https://www.geeksforgeeks.org/how-to-delete-data-in-sqlite-database-in-android/-->
                 </LinearLayout>
 
 

@@ -35,6 +35,8 @@
               android:layout_marginBottom="20dp"
     />
 
+<!--    TODO: Add upload images functionality-->
+
 <!--     TODO: add reload location button-->
     <TextView
             android:layout_width="wrap_content"
